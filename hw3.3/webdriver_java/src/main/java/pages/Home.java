@@ -36,8 +36,9 @@ public class Home {
         return new BusinessPages(driver);
     }
 
+
     private void clickLink(String linkText){
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.linkText(linkText))));
         driver.findElement(By.linkText(linkText)).click();
     }

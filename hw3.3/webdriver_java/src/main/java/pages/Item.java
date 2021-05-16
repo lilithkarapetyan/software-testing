@@ -17,7 +17,7 @@ public class Item {
     }
 
     public void clickImage() {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(image));
         driver.findElement(image).click();
     }

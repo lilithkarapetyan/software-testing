@@ -18,11 +18,7 @@ public class ItemTests extends BaseTests {
     public void checkArrows() {
         Item itemPage = homePage.clickCategory().clickItem();
         int imgCount = itemPage.imageCount();
-        if(imgCount > 1) {
-            assertTrue(itemPage.arrowExists());
-        }
-        else {
-            assertFalse(itemPage.arrowExists());
-        }
+
+        assertEquals(itemPage.arrowExists(), imgCount > 1);
     }
 }

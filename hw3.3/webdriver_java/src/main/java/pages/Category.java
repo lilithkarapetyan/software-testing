@@ -27,20 +27,20 @@ public class Category {
     }
 
     public void clickFilterOffer() {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(filterOffer)));
         driver.findElement(filterOffer).click();
     }
 
     public boolean priceFilterExists() {
-        // WebDriverWait wait = new WebDriverWait(driver, 1000);
+        // WebDriverWait wait = new WebDriverWait(driver, 10);
         // wait.until(ExpectedConditions.invisibilityOf(driver.findElement(loading)));
         // need to check the invisibility of the loading. The loading is too fast, I can't take its path. The test fails because of this
         return !driver.findElements(priceFilter).isEmpty();
     }
 
     public Item clickItem() {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(item)));
         driver.findElement(item).click();
         return new Item(driver);

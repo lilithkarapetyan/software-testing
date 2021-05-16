@@ -15,43 +15,49 @@ public class Login {
     private By register = By.xpath("//*[@id=\"main\"]/div[1]/div[2]/div[2]/a");
 
     public Login(WebDriver driver) {
-            this.driver = driver;
-        }
+        this.driver = driver;
+    }
 
     public void setEmailField(String email) {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(emailField)));
         driver.findElement(emailField).sendKeys(email);
     }
 
     public void setPasswordField(String password) {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(passwordField)));
         driver.findElement(passwordField).sendKeys(password);
     }
 
     public void submit() {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(button)));
         driver.findElement(button).click();
     }
 
     public boolean errorExists() {
-
         return !driver.findElements(errors).isEmpty();
     }
 
     public ForgotPassword goForgotPassword() {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(forgot)));
         driver.findElement(forgot).click();
         return new ForgotPassword(driver);
     }
 
     public Register goRegister() {
-        WebDriverWait wait = new WebDriverWait(driver, 1000);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(register)));
         driver.findElement(register).click();
         return new Register(driver);
+    }
+
+    public Profile goProfile() {
+        setEmailField("lilitt.karapetyan@gmail.com");
+        setPasswordField("softwaretesting");
+        submit();
+        return new Profile(driver);
     }
 }

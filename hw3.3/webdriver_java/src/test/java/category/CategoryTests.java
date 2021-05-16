@@ -24,6 +24,7 @@ public class CategoryTests extends BaseTests {
     public void checkFilterOffers() {
         Category categoryPage = homePage.clickCategory();
         categoryPage.clickFilterOffer();
+        // need to check the invisibility of the loading. The loading is too fast, I can't take its path. The test fails because of this
         assertFalse(categoryPage.priceFilterExists());
     }
 }
